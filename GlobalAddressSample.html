@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Global Address Verification Demo</title>	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+    <style>
+        .header img {
+            float: right;
+            width: 188px;
+            height: 80px;
+            background: #555;
+        }
+
+        .header h2 {
+            position: relative;
+            top: 18px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body class="ui container">
+    <p>	
+    <div class="header">
+        <img src="melissa-global-intelligence.jpg" width="188" height="80" alt="logo" />
+        <h2 class="ui header">Global Address Verification Demo</h2>		
+		<br>
+    </div>	
+	<br>
+	<div class="wiki">
+		
+	</div>
+    <div class="main ui container">	
+        <div class="ui top attached tabular menu">
+            <a class="item active" data-tab="tab-name">Input</a>
+			<a class="item" data-tab="tab-name3">Request</a>
+            <a class="item" data-tab="tab-name2">Output</a>
+        </div>
+        <!-- Input tab -->
+        <div class="ui bottom attached tab segment active" data-tab="tab-name">
+            <div class="ui two column stackable grid container">
+                <div class="column">
+				<a href="http://wiki.melissadata.com/index.php?title=Global_Address_Verification">Global Address Verification Wiki</a>
+                    <!-- License Key -->
+                    <div class="ui info message">					
+                        <div class="header">
+                            License Key
+                        </div>
+                        Enter here your encrypted and unique license key from Melissa Data. This is necessary for including with each request to the web service. If you do not have a license key, please contact your Melissa Data sales representative at 1-800-MELISSA (1-800-635-4772)
+                    </div>
+                    <div class="ui input right fluid field">
+                        <input type="text" placeholder="License Key..." name="id">
+                    </div>
+                    <p>
+                    <!-- Options -->
+                    <div class="ui info message">
+                        <div class="header">
+                            Options
+                        </div>
+						<ul class="list">
+                            <li>Delivery Lines - If enabled, address lines 1-8 will only return the street address and dependent locality. It will not contain locality, administrative area, postal code, etc.</li>
+                            <li>Line Separator - Choose the line separator used for the FormattedAddress result</li>
+                            <li>Output Script - Choose the script type used for all applicable fields</li>
+                            <li>Output Geocode - Specify if you want geocoding output in the response</li>
+                            <li>Country of Origin - Used to determine whether or not to include the country name as the last line in FormattedAddress. Parameter: Any valid ISO-3166-1 Alpha-2, Alpha-3, or Numeric Code</li>
+                        </ul>
+                    </div>
+                    <!-- Option - Delivery Lines -->
+                    <div class="ui selection dropdown">
+                        <input type="hidden" name="opt_deliveryLines">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Delivery Lines</div>
+                        <div class="menu">
+                            <div class="item" data-value="off">Off</div>
+                            <div class="item" data-value="on">On</div>
+                        </div>
+                    </div>                    
+                    <!-- Option - Line Separator -->
+                    <div class="ui selection dropdown">
+                        <input type="hidden" name="opt_lineSeparator">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Line Separator</div>
+                        <div class="menu">
+                            <div class="item" data-value="SEMICOLON">Semicolon</div>
+                            <div class="item" data-value="PIPE">Pipe</div>
+                            <div class="item" data-value="CR">Carriage Return (CR)</div>
+                            <div class="item" data-value="LF">Line Feed (LF)</div>
+                            <div class="item" data-value="CRLF">Carriage Return + Line Feed (CRLF)</div>
+                            <div class="item" data-value="TAB">Tab</div>
+                            <div class="item" data-value="BR">Line Break (BR)</div>
+                        </div>
+                    </div>
+                    <!-- Option - Output Script -->
+                    <div class="ui selection dropdown">
+                        <input type="hidden" name="opt_outputScript">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Output Script</div>
+                        <div class="menu">
+                            <div class="item" data-value="NOCHANGE">Same As Input</div>
+                            <div class="item" data-value="LATIN">Latin</div>
+                            <div class="item" data-value="NATIVE">Native</div>
+                        </div>
+                    </div>
+                    <!-- Option - Output Geo -->
+                    <div class="ui selection dropdown">
+                        <input type="hidden" name="opt_outputGeo">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Output Geocode</div>
+                        <div class="menu">
+                            <div class="item" data-value="ON">On</div>
+                            <div class="item" data-value="OFF">Off</div>
+                        </div>
+                    </div>
+                    <!-- Option - Country of Origin -->
+                    <div class="ui input left">
+                        <input type="text" name="opt_countryOfOrigin" placeholder="Country of Origin">
+                    </div>
+                    <p>                                        
+                </div>
+                <div class="column">
+					<h1>Request Elements</h1>
+					<p>
+
+					<h4>Address</h4>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address1..." name="a1">
+                    </div>
+                    <p>
+					<div class="ui input right fluid">
+                        <input type="text" placeholder="Address2..." name="a2">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address3..." name="a3">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address4..." name="a4">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address5..." name="a5">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address6..." name="a6">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address7..." name="a7">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address8..." name="a8">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Double Dependent Locality..." name="ddeploc">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Dependent Locality..." name="deploc">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="City/Locality..." name="loc">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Sub-Administrative Area..." name="subadmarea">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="State/Administrative Area..." name="admarea">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Zip/Postal Code..." name="postal">
+                    </div>
+                    <p>
+                        <div class="ui input right fluid">
+                        <input type="text" placeholder="Sub-National Area..." name="subnatarea">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Country..." name="ctry">
+                    </div>
+                    <p>
+                    <p><br>
+                    <button class="ui icon button normal" onclick="doClear()">
+                        <i class="erase icon"></i>
+                        Clear
+                    </button>
+                    <button class="ui icon button positive" onclick="doVerify()">
+                        <i class="thumbs up icon"></i>
+                        Send Request
+                    </button>
+                </div>
+            </div>
+        </div>
+
+		<!-- REST tab -->
+        <div class="ui bottom attached tab segment" data-tab="tab-name3">
+            <pre name="restOutput">
+                Run a record through first
+            </pre>
+        </div>
+		
+        <!-- Output tab -->
+        <div class="ui bottom attached tab segment" data-tab="tab-name2">
+            <pre name="jsonOutput">
+                Run a record through first
+            </pre>
+        </div>
+        <p><br>
+    </div>
+
+    <script>
+        $('.menu .item').tab();
+        $('.ui.dropdown').dropdown();
+        $('.ui.accordion').accordion();
+
+        function getOpt() {
+            var opt = "";
+            if ($('input[name=opt_deliveryLines]').val() != "") opt += "DeliveryLines:" + $('input[name=opt_deliveryLines]').val() + ",";
+            if ($('input[name=opt_lineSeparator]').val() != "") opt += "LineSeparator:" + $('input[name=opt_lineSeparator]').val() + ",";
+            if ($('input[name=opt_outputScript]').val() != "") opt += "OutputScript:" + $('input[name=opt_outputScript]').val() + ",";
+            if ($('input[name=opt_outputGeo]').val() != "") opt += "OutputGeo:" + $('input[name=opt_outputGeo]').val() + ",";
+            if ($('input[name=opt_countryOfOrigin]').val() != "") opt += "CountryOfOrigin:" + $('input[name=opt_countryOfOrigin]').val() + ",";
+            return opt;
+        }
+
+		function getUserInput() {
+			var userInput = "";
+			userInput += "&a1=" + $('input[name=a1]').val();
+			userInput += "&a2=" + $('input[name=a2]').val();
+			userInput += "&a3=" + $('input[name=a3]').val();
+			userInput += "&a4=" + $('input[name=a4]').val();
+			userInput += "&a5=" + $('input[name=a5]').val();
+            userInput += "&a6=" + $('input[name=a6]').val();
+			userInput += "&a7=" + $('input[name=a7]').val();
+			userInput += "&a8=" + $('input[name=a8]').val();
+			userInput += "&ddeploc=" + $('input[name=ddeploc]').val();
+			userInput += "&deploc=" + $('input[name=deploc]').val();
+            userInput += "&loc=" + $('input[name=loc]').val();
+			userInput += "&subadmarea=" + $('input[name=subadmarea]').val();
+            userInput += "&admarea=" + $('input[name=admarea]').val();
+            userInput += "&postal=" + $('input[name=postal]').val();
+            userInput += "&subnatarea=" + $('input[name=subnatarea]').val();
+            userInput += "&ctry=" + $('input[name=ctry]').val();
+            return userInput;
+		}
+
+        function doVerify() {
+			var xhttp = new XMLHttpRequest();
+			var url = "https://address.melissadata.net/v3/WEB/GlobalAddress/doGlobalAddress?";
+			url += "&id=" + encodeURIComponent($('input[name=id]').val());
+			url += "&opt=" + getOpt().replace(/,\s*$/, "");
+			url += getUserInput();
+            url += "&format=JSON";
+			xhttp.open("GET", url, false);
+			xhttp.send();
+			console.log(url);
+			var response = JSON.parse(xhttp.responseText);
+			
+			$('pre[name=restOutput]').text('\n\n' + url + '\n\n\n');
+			$('pre[name=jsonOutput]').text(JSON.stringify(response, null, '\t'));
+			$('.ui.menu').find('.item').tab('change tab', 'tab-name2');
+        }
+
+        function doClear() {
+            $("input").each(function(index) {
+                $(this).val('');
+            })
+        }
+
+    </script>
+</body>
+</html>
