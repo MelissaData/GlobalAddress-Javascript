@@ -113,6 +113,16 @@
                             <div class="item" data-value="OFF">Off</div>
                         </div>
                     </div>
+					<!-- Option - US Extras -->
+                    <div class="ui selection dropdown">
+                        <input type="hidden" name="opt_USExtras">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">US Extras</div>
+                        <div class="menu">
+                            <div class="item" data-value="ON">On</div>
+                            <div class="item" data-value="OFF">Off</div>
+                        </div>
+                    </div>
                     <!-- Option - Country of Origin -->
                     <div class="ui input left">
                         <input type="text" name="opt_countryOfOrigin" placeholder="Country of Origin">
@@ -187,6 +197,10 @@
                     <div class="ui input right fluid">
                         <input type="text" placeholder="Country..." name="ctry">
                     </div>
+					<p>
+					<div class="ui input right fluid">
+                        <input type="text" placeholder="Last Name..." name="lastname">
+                    </div>
                     <p>
                     <p><br>
                     <button class="ui icon button normal" onclick="doClear()">
@@ -229,6 +243,7 @@
             if ($('input[name=opt_outputScript]').val() != "") opt += "OutputScript:" + $('input[name=opt_outputScript]').val() + ",";
             if ($('input[name=opt_outputGeo]').val() != "") opt += "OutputGeo:" + $('input[name=opt_outputGeo]').val() + ",";
             if ($('input[name=opt_countryOfOrigin]').val() != "") opt += "CountryOfOrigin:" + $('input[name=opt_countryOfOrigin]').val() + ",";
+			if ($('input[name=opt_USExtras]').val() != "") opt += "USExtras:" + $('input[name=opt_USExtras]').val() + ",";
             return opt;
         }
 
@@ -250,6 +265,7 @@
             userInput += "&postal=" + $('input[name=postal]').val();
             userInput += "&subnatarea=" + $('input[name=subnatarea]').val();
             userInput += "&ctry=" + $('input[name=ctry]').val();
+			userInput += "&lastname=" + $('input[name=lastname]').val();
             return userInput;
 		}
 
